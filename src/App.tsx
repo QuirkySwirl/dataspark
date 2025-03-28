@@ -97,7 +97,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-theme">
+    <div className="relative min-h-screen bg-gradient-to-br from-[#2B3A67]/50 to-[#1a2544]/50 overflow-x-hidden">
       <Helmet>
         <title>DataSpark - Interactive Data Learning Platform</title>
         <meta name="description" content="Master data concepts through interactive learning modules. From fundamentals to advanced topics in data quality, governance, and analytics." />
@@ -117,12 +117,12 @@ function App() {
         <meta name="twitter:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&h=630&fit=crop" />
       </Helmet>
       <ParticleBackground />
-      <header className="bg-card backdrop-blur-lg border-b border-card">
+      <header className="relative z-10 bg-white/5 backdrop-blur-lg border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <button
               onClick={() => setCurrentModule(null)}
-              className="text-2xl font-bold text-theme-primary flex items-center gap-2 hover:opacity-80 transition-opacity"
+              className="text-2xl font-bold text-white flex items-center gap-2 hover:opacity-80 transition-opacity"
             >
               <Database className="w-8 h-8" />
               DataSpark
@@ -130,14 +130,14 @@ function App() {
             <nav className="flex items-center gap-4">
               <button
                 onClick={() => setShowGlossary(true)}
-                className="text-theme-secondary hover:text-theme-primary transition-colors flex items-center gap-2"
+                className="text-white/70 hover:text-white transition-colors flex items-center gap-2"
               >
                 <Book className="w-5 h-5" />
                 Glossary
               </button>
               <button
                 onClick={() => setShowAbout(true)}
-                className="text-theme-secondary hover:text-theme-primary transition-colors flex items-center gap-2"
+                className="text-white/70 hover:text-white transition-colors flex items-center gap-2"
               >
                 <Info className="w-5 h-5" />
                 About
@@ -148,7 +148,7 @@ function App() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {modules.map((module) => (
             <ModuleCard
@@ -159,7 +159,7 @@ function App() {
           ))}
         </div>
       </main>
-      <ScrollingFooter />
+      <ScrollingFooter className="relative z-10" />
     </div>
   );
 }

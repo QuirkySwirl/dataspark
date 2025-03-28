@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background-start: #f8fafc;
+    --background-end: #e2e8f0;
+    --text-primary: #1a2544;
+    --text-secondary: #475569;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --card-border: rgba(0, 0, 0, 0.1);
+  }
+
+  .dark {
+    --background-start: #2B3A67;
+    --background-end: #1a2544;
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(255, 255, 255, 0.1);
+  }
+}
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+  
+  .bg-theme {
+    @apply bg-gradient-to-br;
+    background-color: var(--background-start);
+    background-image: linear-gradient(to bottom right, var(--background-start), var(--background-end));
+  }
+  
+  .text-theme-primary {
+    color: var(--text-primary);
+  }
+  
+  .text-theme-secondary {
+    color: var(--text-secondary);
+  }
+  
+  .bg-card {
+    background-color: var(--card-bg);
+  }
+  
+  .border-card {
+    border-color: var(--card-border);
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .scale-102 {
+    transform: scale(1.02);
+  }
+  
+  .bg-gradient-custom {
+    background-image: linear-gradient(to bottom right, var(--background-start), var(--background-end));
+  }
+  
+  .animate-scroll-x {
+    animation: scroll-x 20s linear infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

@@ -12,7 +12,7 @@ export function ParticleBackground() {
     <Particles
       id="tsparticles"
       init={particlesInit}
-      className="absolute inset-0 -z-10"
+      className="fixed inset-0 z-0"
       options={{
         background: {
           opacity: 0

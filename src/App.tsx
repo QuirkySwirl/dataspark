@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { BookOpen, Brain, Database, FileSpreadsheet, GitBranch, Shield, Book } from 'lucide-react';
+import { BookOpen, Brain, Database, FileSpreadsheet, GitBranch, Shield, Book, Info } from 'lucide-react';
 import ModuleCard from './components/ModuleCard';
 import WhyDataModule from './pages/WhyDataModule';
 import DataInActionModule from './pages/DataInActionModule';
@@ -11,6 +11,7 @@ import { ThemeToggle } from './components/ThemeToggle';
 import { ParticleBackground } from './components/ParticleBackground';
 import Glossary from './pages/Glossary';
 import AdvancedConceptsModule from './pages/AdvancedConceptsModule';
+import About from './pages/About';
 import { ScrollingFooter } from './components/ScrollingFooter';
 
 const modules = [
@@ -61,6 +62,7 @@ const modules = [
 function App() {
   const [currentModule, setCurrentModule] = React.useState<number | null>(null);
   const [showGlossary, setShowGlossary] = React.useState(false);
+  const [showAbout, setShowAbout] = React.useState(false);
 
   if (currentModule === 1) {
     return <WhyDataModule onBack={() => setCurrentModule(null)} />;
@@ -88,6 +90,10 @@ function App() {
   
   if (showGlossary) {
     return <Glossary onBack={() => setShowGlossary(false)} />;
+  }
+  
+  if (showAbout) {
+    return <About onBack={() => setShowAbout(false)} />;
   }
 
   return (
@@ -128,6 +134,13 @@ function App() {
               >
                 <Book className="w-5 h-5" />
                 Glossary
+              </button>
+              <button
+                onClick={() => setShowAbout(true)}
+                className="text-theme-secondary hover:text-theme-primary transition-colors flex items-center gap-2"
+              >
+                <Info className="w-5 h-5" />
+                About
               </button>
               <ThemeToggle />
             </nav>
